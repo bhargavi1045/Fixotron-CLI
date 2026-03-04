@@ -1,0 +1,47 @@
+{
+  "name": "fixotron-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhargavi1045/Fixotron-CLI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/bhargavi1045/Fixotron-CLI/issues"
+  },
+  "homepage": "https://github.com/bhargavi1045/Fixotron-CLI#readme",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.78.0",
+    "chalk": "^5.6.2",
+    "cli-highlight": "^2.1.11",
+    "commander": "^14.0.3",
+    "dotenv": "^17.3.1",
+    "glob": "^13.0.6",
+    "inquirer": "^13.3.0",
+    "openai": "^6.25.0",
+    "ora": "^9.3.0",
+    "simple-git": "^3.32.3",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.9",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^25.3.3",
+    "@types/uuid": "^10.0.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.4.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
