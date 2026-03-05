@@ -18,33 +18,33 @@ export const stopSpinner = (success: boolean, text: string): void => {
 };
 
 export const printHeader = (): void => {
-  console.log('\n' + chalk.bold.cyan('  ✦ Fixotron CLI — AI Bug Fixer'));
-  console.log(chalk.gray('  ─────────────────────────────────────'));
+  console.log('\n' + chalk.bold.cyan('Fixotron CLI-AI Bug Fixer'));
+  console.log(chalk.gray('─────────────────────────────────────'));
 };
 
 export const printFileInfo = (info: Record<string, string>): void => {
   Object.entries(info).forEach(([key, val]) => {
     console.log(`  ${chalk.gray(key.padEnd(12))} ${chalk.white(val)}`);
   });
-  console.log(chalk.gray('  ─────────────────────────────────────'));
+  console.log(chalk.gray('─────────────────────────────────────'));
 };
 
 export const printFixResult = (result: AIFixResult, language = 'typescript'): void => {
   if (result.status === 'unfixable') {
-    console.log('\n' + chalk.red.bold('  ✗ Unfixable'));
+    console.log('\n' + chalk.red.bold('Unfixable'));
     console.log(chalk.gray('  Reason: ') + chalk.yellow(result.reason ?? 'Unknown'));
     return;
   }
 
-  console.log('\n' + chalk.green.bold('  ✓ Fixed successfully'));
+  console.log('\n' + chalk.green.bold('Fixed successfully'));
 
   if (result.explanation) {
     console.log('\n' + chalk.cyan('  Logic changes:'));
     console.log(chalk.white('  ' + result.explanation));
   }
 
-  if (result.code) {
-    console.log('\n' + chalk.gray('  ── Fixed Code Preview ──────────────────\n'));
+  if (result.code) {              
+    console.log('\n' + chalk.gray('── Fixed Code Preview ──────────────────\n'));
     try {
       console.log(highlight(result.code, { language, ignoreIllegals: true }));
     } catch {
@@ -53,17 +53,17 @@ export const printFixResult = (result: AIFixResult, language = 'typescript'): vo
   }
 
   if (result.files) {
-    console.log('\n' + chalk.cyan('  Multi-file results:'));
+    console.log('\n' + chalk.cyan('Multi-file results:'));
     Object.keys(result.files).forEach((f) => {
-      console.log(chalk.green(`    ✓ ${f}`));
+      console.log(chalk.green(`${f}`));
     });
   }
 };
 
 export const printExecutionResult = (res: ExecutionResult): void => {
-  console.log('\n' + chalk.gray('  ── Execution Result ─────────────────────'));
+  console.log('\n' + chalk.gray('── Execution Result ─────────────────────'));
   if (res.timedOut) {
-    console.log(chalk.red('  ✗ Timed out'));
+    console.log(chalk.red('Timed out'));
     return;
   }
   const code = res.exitCode === 0
@@ -76,7 +76,7 @@ export const printExecutionResult = (res: ExecutionResult): void => {
 
 export const printBatchSummary = (results: Map<string, AIFixResult>): void => {
   console.log('\n' + chalk.bold.cyan('  Batch Summary'));
-  console.log(chalk.gray('  ─────────────────────────────────────'));
+  console.log(chalk.gray('─────────────────────────────────────'));
   results.forEach((result, file) => {
     const icon = result.status === 'fixed' ? chalk.green('✓') : chalk.red('✗');
     const reason = result.status === 'unfixable' ? chalk.gray(` (${result.reason})`) : '';
@@ -85,5 +85,5 @@ export const printBatchSummary = (results: Map<string, AIFixResult>): void => {
 };
 
 export const printDivider = (): void => {
-  console.log(chalk.gray('\n  ─────────────────────────────────────\n'));
+  console.log(chalk.gray('\n─────────────────────────────────────\n'));
 };
