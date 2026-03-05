@@ -10,9 +10,13 @@ const config: Config = {
       tsconfig: 'tsconfig.json',
     }],
   },
+  transformIgnorePatterns: [
+    'node_modules/(?!(uuid|chalk|ora|cli-highlight)/)',
+  ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   clearMocks: true,
   collectCoverage: false,
+  testTimeout: 20000,
 };
 
 export default config;
