@@ -78,9 +78,8 @@ export const printBatchSummary = (results: Map<string, AIFixResult>): void => {
   console.log('\n' + chalk.bold.cyan('  Batch Summary'));
   console.log(chalk.gray('─────────────────────────────────────'));
   results.forEach((result, file) => {
-    const icon = result.status === 'fixed' ? chalk.green('✓') : chalk.red('✗');
     const reason = result.status === 'unfixable' ? chalk.gray(` (${result.reason})`) : '';
-    console.log(`  ${icon} ${chalk.white(file)}${reason}`);
+    console.log(`${chalk.white(file)}${reason}`);
   });
 };
 
